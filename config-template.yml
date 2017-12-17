@@ -1,0 +1,52 @@
+services:
+# Zaifから取引データを取得する場合に以下の設定を行って下さい。
+# API Key / Secretについては、以下で発行してください。
+# https://lightning.bitflyer.jp/developer
+- service: zaif
+  key: <specify your API key>
+  secret: <specify your API secret>
+  # 取引データを取得する対象の仮想通貨の種類を設定して下さい。
+  # 設定可能な値は、coin-trade-history list-currenciesコマンドで確認できます。
+  currencies:
+  - btc_jpy
+  # - xem_jpy
+  # - fscc_btc
+  # - sjcx_jpy
+  # - jpyz_jpy
+  # - ncxc_btc
+  # - zaif_btc
+  # - bch_btc
+  # - xem_btc
+  # - eth_btc
+  # - sjcx_btc
+  # - eth_jpy
+  # - cicc_btc
+  # - ncxc_jpy
+  # - mosaic.cms_jpy
+  # - mona_btc
+  # - cicc_jpy
+  # - pepecash_btc
+  # - erc20.cms_jpy
+  # - pepecash_jpy
+  # - xcp_jpy
+  # - bitcrystals_jpy
+  # - bch_jpy
+  # - zaif_jpy
+  # - mona_jpy
+  # - fscc_jpy
+  # - xcp_btc
+  # - bitcrystals_btc
+
+# bitFlyerから取引データを取得する場合に以下の設定を行って下さい。
+# API Key / Secretについては、以下で発行してください。
+# https://zaif.jp/api_keys
+- service: bitflyer
+  key: <specify your API key>
+  secret: <specify your API secret>
+  currencies:
+  - BTC_JPY
+  # - FX_BTC_JPY
+  # - ETH_BTC
+  # - BCH_BTC
+  # - BTCJPY22DEC2017
+  # - BTCJPY29DEC2017

@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/github.com/uphy/coin-trade-history
+    docker:
+      - image: circleci/golang:1.9
+    steps:
+      - checkout
+      - run: go get github.com/mitchellh/gox
+      - run: gox --osarch "windows/386 windows/amd64 linux/386 linux/amd64 darwin/386 darwin/amd64" --output "dist/{{.Dir}}_{{.OS}}_{{.Arch}}/{{.Dir}}"
+      - run: |
+          pushd .
+          cd dist
+          for dir in $(ls -1)
+          do
+            cp ../config-template.yml $dir/config.yml
+            tar czf $dir.tar.gz $dir
+            rm -rf $dir
+          done
+          popd
+      - run: go get github.com/tcnksm/ghr
+      - run: ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME -delete 0.0.1 dist/
