@@ -13,8 +13,9 @@ ZaifとbitFlyerに対応しています。
 * bitFlyer: https://lightning.bitflyer.jp/developer
 * Zaif: https://zaif.jp/api_keys
 
-取得したら、API Key/Secretの内容を、config.ymlに書き込んでください。
-自分が取引した通貨をconfig.ymlのcurrenciesに列挙してください。
+取得したら、API Key/Secretの内容を、config.ymlに書き込んでください。  
+また、自分が取引した通貨をconfig.ymlのcurrenciesに列挙してください。  
+(currenciesを削除すると全てを対象としますが、時間がかかります。)
 
 例: ZaifでXEMとビットコインを取引した場合
 
@@ -57,4 +58,4 @@ $ coin-trade-history download trade-history.xlsx
 
 - 開発途中です。正しく取得できない可能性があるので収支が合っているかよくご確認下さい。特に、取引履歴取得はページ処理をサボってるので、1万件しか取得しません。
 1万件以上取引した方はご注意下さい。
-- 本ツールで取得するのは取引履歴のみです。その他、サービスごとにあるログインボーナスやチャットボーナス等は考慮されません。
+- 本ツールで取得するのは取引履歴のみです。その他、サービスごとにあるログインボーナスやチャットボーナス等は考慮されません。
